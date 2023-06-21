@@ -4,8 +4,6 @@ import React, { useEffect } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { useSelector, useDispatch } from "react-redux";
 import { deleteNote, fetchNotes } from "../store/api/NoteSlice";
-import { NotesSlice} from "../store/api2/NotesSlice";
-
 import { Link } from "react-router-dom";
 
 function Notes() {
