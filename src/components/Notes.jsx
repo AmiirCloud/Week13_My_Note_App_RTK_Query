@@ -1,27 +1,24 @@
 /* eslint-disable react/prop-types */
 
-import React, { useEffect } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
-import { useSelector, useDispatch } from "react-redux";
-import { deleteNote, fetchNotes } from "../store/api/NoteSlice";
-import { NotesSlice} from "../store/api2/NotesSlice";
-
+import {  useFetchNotesQuery} from "../store/api/NoteSlice";
 import { Link } from "react-router-dom";
-
 function Notes() {
-  const allNotes = useSelector((state) => state.notes);
+  const {data:notes= [],isLoading,error} =  useFetchNotesQuery();
 
-  const { notes, status, error } = allNotes;
+  // const allNotes = useSelector((state) => state.notes);
 
-  const dispatch = useDispatch();
+  // const { notes, status, error } = allNotes;
 
-  useEffect(() => {
-    dispatch(fetchNotes());
-  }, [dispatch]);
+  // const dispatch = useDispatch();
 
-  const deleteNoteHandler = (id) => {
-    dispatch(deleteNote(id));
-  };
+  // useEffect(() => {
+  //   dispatch(fetchNotes());
+  // }, [dispatch]);
+
+  // const deleteNoteHandler = (id) => {
+  //   dispatch(deleteNote(id));
+  // };
   
 
   return (
