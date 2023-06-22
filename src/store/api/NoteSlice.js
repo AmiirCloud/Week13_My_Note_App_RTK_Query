@@ -36,9 +36,25 @@ export const NotesSlice = createApi({
             },
             invalidatesTags:["notes"]
 
+        }),
+        deleteNote:builder.mutation({
+            query:(noteid)=>{
+                return{
+                    url:`delete_note/${noteid}`,
+                    method:"DELETE",
+                    
+                }
+            },
+            invalidatesTags:["notes"]
         })
+       
     })
 })
-export const {useFetchNotesQuery,useAddNoteMutation,useEditNoteMutation} =  NotesSlice
+export const {
+    useFetchNotesQuery,
+    useAddNoteMutation,
+    useEditNoteMutation,
+    useDeleteNoteMutation
+} =  NotesSlice
 
 export default NotesSlice.reducer;
